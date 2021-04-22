@@ -36,13 +36,14 @@ var html = require('movian/html');
 var Rediptv = (function () {
 
     var _BASE_URL = {
-                     rediptv: "https://android.rediptv2.com",
+                     rediptv: "http://common.rediptv2.com",
                      richtv: "http://access.richtv1.com",
                      current: null,
                     };
 
     var _OPTIONS =  {
                      usercode: '0000000000',
+                     check: '0000000000',
                      mac: false,
                      debug : false,
                     };
@@ -64,6 +65,7 @@ var Rediptv = (function () {
                 return  {
                           usercode: options.usercode ? options.usercode : _OPTIONS.usercode,
                           mac : options.mac ? options.mac : _OPTIONS.mac,
+                          check : options.check ? options.check : _OPTIONS.check,
                           debug : options.debug ? options.debug : _OPTIONS.debug,
                         };
             }
@@ -72,8 +74,8 @@ var Rediptv = (function () {
         this.baseUrl = function () {
 
                   return {
-                           richtv: _BASE_URL.richtv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac,
-                           rediptv: _BASE_URL.rediptv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac,
+                           richtv: _BASE_URL.richtv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac + "&customer=redline,&check=" + this.options().check,
+                           rediptv: _BASE_URL.rediptv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac+ "&customer=redline,&check=" + this.options().check,
                            current: _BASE_URL.current,
                          };
         };
@@ -108,6 +110,7 @@ var Rediptv = (function () {
 
         var s = { method: "GET",
                   debug: this.options().debug,
+                  headers: { 'User-Agent' : 'REDLINECLIENT TS4000 V2.4.81' },
                   noFail:true,
                   noFollow: false,
                  };
@@ -170,6 +173,7 @@ var Rediptv = (function () {
 
         var s = { method: "GET",
                   debug: this.options().debug,
+                  headers: { 'User-Agent' : 'REDLINECLIENT TS4000 V2.4.81' },
                   noFail:true,
                   noFollow: false,
                  };
@@ -208,6 +212,7 @@ var Rediptv = (function () {
             var res = false;
             var s = { method: "GET",
                       debug: this.options().debug,
+                       headers: { 'User-Agent' : 'REDLINECLIENT TS4000 V2.4.81' },
                       //headers:{'Range': 'bytes=0-'},
                       noFail:true,
                       noFollow: true,
