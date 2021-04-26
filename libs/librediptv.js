@@ -36,15 +36,15 @@ var html = require('movian/html');
 var Rediptv = (function () {
 
     var _BASE_URL = {
-                     rediptv: "http://common.rediptv2.com",
+                     rediptv: "https://android.rediptv2.com",
                      richtv: "http://access.richtv1.com",
                      current: null,
                     };
 
     var _OPTIONS =  {
                      usercode: '0000000000',
-                     check: '0000000000',
-                     mac: false,
+                     mac: '0000000000',
+					 check: '0000000000',
                      debug : false,
                     };
 
@@ -74,8 +74,8 @@ var Rediptv = (function () {
         this.baseUrl = function () {
 
                   return {
-                           richtv: _BASE_URL.richtv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac + "&customer=redline,&check=" + this.options().check,
-                           rediptv: _BASE_URL.rediptv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac+ "&customer=redline,&check=" + this.options().check,
+                           richtv: _BASE_URL.richtv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac + "&customer=redline&check=" + this.options().check,
+                           rediptv: _BASE_URL.rediptv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac+ "&customer=redline&check=" + this.options().check,
                            current: _BASE_URL.current,
                          };
         };
@@ -262,7 +262,6 @@ var Rediptv = (function () {
 
     }
 */
-
 
 
 
