@@ -36,8 +36,8 @@ var html = require('movian/html');
 var Rediptv = (function () {
 
     var _BASE_URL = {
-                     rediptv: "https://android.rediptv2.com",
-                     richtv: "http://access.richtv1.com",
+                     rediptv: "http://access.richtv1.com",
+                     richtv: "https://android.rediptv2.com",
                      current: null,
                     };
 
@@ -74,8 +74,8 @@ var Rediptv = (function () {
         this.baseUrl = function () {
 
                   return {
-                           richtv: _BASE_URL.richtv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac + "&customer=redline&check=" + this.options().check,
-                           rediptv: _BASE_URL.rediptv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac+ "&customer=redline&check=" + this.options().check,
+                           richtv: _BASE_URL.richtv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac + "&check=" + this.options().check,
+                           rediptv: _BASE_URL.rediptv + "/ch.php?usercode=" + this.options().usercode + "&mac=" + this.options().mac+ "&check=" + this.options().check,
                            current: _BASE_URL.current,
                          };
         };
@@ -110,7 +110,7 @@ var Rediptv = (function () {
 
         var s = { method: "GET",
                   debug: this.options().debug,
-                  headers: { 'User-Agent' : 'REDLINECLIENT TS4000 V2.4.81' },
+                  headers: { 'User-Agent' : 'REDLINECLIENT TVBOX TVBOX 1.0.02' },
                   noFail:true,
                   noFollow: false,
                  };
@@ -173,7 +173,7 @@ var Rediptv = (function () {
 
         var s = { method: "GET",
                   debug: this.options().debug,
-                  headers: { 'User-Agent' : 'REDLINECLIENT TS4000 V2.4.81' },
+                  headers: { 'User-Agent' : 'REDLINECLIENT TVBOX TVBOX 1.0.02' },
                   noFail:true,
                   noFollow: false,
                  };
@@ -212,7 +212,7 @@ var Rediptv = (function () {
             var res = false;
             var s = { method: "GET",
                       debug: this.options().debug,
-                       headers: { 'User-Agent' : 'REDLINECLIENT TS4000 V2.4.81' },
+                       headers: { 'User-Agent' : 'REDLINECLIENT TVBOX TVBOX 1.0.02' },
                       //headers:{'Range': 'bytes=0-'},
                       noFail:true,
                       noFollow: true,
